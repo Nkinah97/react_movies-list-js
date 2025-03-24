@@ -1,8 +1,13 @@
-/* eslint-disable max-len */
+import { MovieCard } from '../MovieCard/MovieCard';
 
-import './App.scss';
-import { MovieCard } from './components/MovieCard/MovieCard';
-
-export const App = () => (
-  <MovieCard />
-);
+export const MovieList = ({ movies }) => {
+  return (
+    <div className="movies" data-cy="MoviesList">
+      {movies.map(movie => (
+        <div key={movie.imdbId}>
+          <MovieCard movie={movie} />
+        </div>
+      ))}
+    </div>
+  );
+};
